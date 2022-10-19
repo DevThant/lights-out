@@ -32,36 +32,30 @@ class Board extends Component {
   static defaultProps = {
     nrows: 5,
     ncols: 5,
-    // lightsOn: 2,
+    lightsOn: 0.25,
   };
   constructor(props) {
     super(props);
     this.state = {
       hasWon: false,
-      board: [
-        [false, false, false],
-        [false, false, false],
-        [false, false, false],
-      ],
+      board: this.createBoard(),
     };
-    // TODO: set initial state
+    this.flipCellsAround = this.flipCellsAround.bind(this);
   }
 
   /** create a board nrows high/ncols wide, each cell randomly lit or unlit */
 
   createBoard() {
     let board = [];
-    // TODO: create array-of-arrays of true/false values
-    for (let i; i < this.props.nrows; i++) {
-      board.push([]);
+    for (let y = 0; y < this.props.nrows; y++) {
+      let row = [];
+      for (let x = 0; x < this.props.ncols; x++) {
+        row.push(Math.random() < this.props.lightsOn);
+      }
+      board.push(row);
     }
-
     return board;
   }
-  // function to generate arrays of arrays
-
-  //function to calcuate the sum of two numbers
-
   /** handle changing a cell: update board & determine if winner */
 
   flipCellsAround(coord) {
@@ -82,17 +76,37 @@ class Board extends Component {
     // win when every cell is turned off
     // TODO: determine is the game has been won
 
-    this.setState({ board, hasWon });
+    // this.setState({ board, hasWon });
   }
 
   /** Render game board or winning message. */
 
   render() {
+    const { nrows, ncols } = this.props;
+    const { board, hasWon } = this.state;
+    let tblBoard = [];
+    for (let y = 0; y < nrows; y++) {
+      let row = [];
+      for (let x = 0; x < ncols; x++) {
+        row.push(
+          <Cell
+            key={`${y}-${x}`}
+            isLit={board[y][x]}
+            flipCellsAroundMe={this.flipCellsAround}
+          />
+        );
+      }
+      tblBoard.push(<tr>{row}</tr>);
+    }
     // if the game is won, just show a winning msg & render nothing else
     // TODO
-    // make table board
-    // TODO
-    return;
+    return (
+      <div>
+        <table className="Board">
+          <tbody>{tblBoard}</tbody>
+        </table>
+      </div>
+    );
   }
 }
 
