@@ -72,15 +72,15 @@ class Board extends Component {
     }
 
     //flip initial cell
-    flipCell(y,x);
+    flipCell(y, x);
     //flip neighboring cells
-    flipCell(y,x+1);//right
-    flipCell(y,x-1);//left
-    flipCell(y+1,x);//below
-    flipCell(y-1,x);//above
+    flipCell(y, x + 1); //right
+    flipCell(y, x - 1); //left
+    flipCell(y + 1, x); //below
+    flipCell(y - 1, x); //above
 
     // win when every cell is turned off
-    let hasWon = board.every(row=> row.every(cell=> !cell))
+    let hasWon = board.every((row) => row.every((cell) => !cell));
 
     this.setState({ board, hasWon });
   }
@@ -94,7 +94,7 @@ class Board extends Component {
     for (let y = 0; y < nrows; y++) {
       let row = [];
       for (let x = 0; x < ncols; x++) {
-        let coord = `${y}-${x}`
+        let coord = `${y}-${x}`;
         row.push(
           <Cell
             key={coord}
@@ -107,9 +107,14 @@ class Board extends Component {
       tblBoard.push(<tr>{row}</tr>);
     }
     // if the game is won, just show a winning msg & render nothing else
-    if(hasWon)return <h1>You Won</h1>
+    if (hasWon) return <h1>You Won</h1>;
     return (
       <div>
+        <div className="container">
+          <h1 className="neon-7">
+            Lights <span className="neon-8">Out</span>
+          </h1>
+        </div>
         <table className="Board">
           <tbody>{tblBoard}</tbody>
         </table>
