@@ -2,32 +2,6 @@ import React, { Component } from "react";
 import Cell from "./Cell";
 import "./Board.css";
 
-/** Game board of Lights out.
- *
- * Properties:
- *
- * - nrows: number of rows of board
- * - ncols: number of cols of board
- * - chanceLightStartsOn: float, chance any cell is lit at start of game
- *
- * State:
- *
- * - hasWon: boolean, true when board is all off
- * - board: array-of-arrays of true/false
- *
- *    For this board:
- *       .  .  .
- *       O  O  .     (where . is off, and O is on)
- *       .  .  .
- *
- *    This would be: [[f, f, f], [t, t, f], [f, f, f]]
- *
- *  This should render an HTML table of individual <Cell /> components.
- *
- *  This doesn't handle any clicks --- clicks are on individual cells
- *
- **/
-
 class Board extends Component {
   static defaultProps = {
     nrows: 5,
@@ -43,6 +17,7 @@ class Board extends Component {
       out2: false,
     };
     this.flipCellsAround = this.flipCellsAround.bind(this);
+    this.playAgain = this.playAgain.bind(this);
   }
 
   /** create a board nrows high/ncols wide, each cell randomly lit or unlit */
@@ -87,6 +62,14 @@ class Board extends Component {
     this.setState({ board, hasWon });
   }
 
+  // Reset the board
+  playAgain() {
+    this.setState({
+      board: this.createBoard(),
+      hasWon: false,
+    });
+  }
+
   // set timer to switch between out1 and out2
   componentDidMount() {
     this.interval = setInterval(() => {
@@ -121,11 +104,16 @@ class Board extends Component {
     }
     if (out1) out = "out1";
     if (out2) out = "out2";
-    // if the game is won, just show a winning msg & render nothing else
-    if (hasWon) return <h1>You Won</h1>;
+    if (hasWon)
+      return (
+        <div>
+          <p id="hasWon">You Won</p>
+          <button onClick={this.playAgain}>Play Again</button>
+        </div>
+      );
     return (
       <div>
-        <div className="container">
+        <div id="container">
           <h1>
             <span className="lights">Lights </span>
             <span className={out}>Out</span>

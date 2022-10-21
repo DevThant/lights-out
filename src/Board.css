@@ -3,13 +3,15 @@
 
 
 body {
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-image: url(./background1.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-
+  height: 80vh;
 }
 
 .Board {
@@ -17,10 +19,20 @@ body {
 }
 
 #container {
-  padding: 2rem;
   display: flex;
-  flex-direction: column;
-  gap: 4rem;
+  justify-content: center;
+  align-items: center;
+}
+
+#hasWon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Righteous', cursive;
+  font-size: 7em;
+  color: #fff;
+  text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 4px #228dff,
+    0 0 5px #228dff, 0 0 10px #228dff, 0 0 15px #228dff, 0 0 25px #228dff;
 }
 
 h1 {
@@ -32,6 +44,24 @@ h1 {
   text-decoration: none;
   color: #fff;
 }
+
+button {
+  background-color: #fff;
+  border: none;
+  color: #000;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 2em;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+  font-family: 'Righteous', cursive;
+  animation: bflickr 2s ease-in-out infinite alternate;
+}
+
+
 
 .lights {
   font-family: 'Turret Road', cursive;
@@ -149,6 +179,19 @@ h1 {
   }
 }
 
+@-webkit-keyframes flickr {
+  0%, 45%, 47%, 49%, 51% {
+    text-shadow: none;
+    color: #515151;
+  }
+
+  46%, 48%, 50%, 52%, 100% {
+    color: #fff;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff00de,
+      0 0 35px #ff00de, 0 0 40px #ff00de, 0 0 50px #ff00de, 0 0 75px #ff00de;
+  }
+}
+
 @keyframes flickr {
   0%, 45%, 47%, 49%, 51% {
     text-shadow: none;
@@ -171,6 +214,7 @@ h1 {
   }
 
   46%, 48%, 50%, 52%, 100% {
+    color: #fff;
     border-color: #eaf6f6 #eaf6f6 #eaf6f6 transparent;
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff00de,
       0 0 35px #ff00de, 0 0 40px #ff00de, 0 0 50px #ff00de, 0 0 75px #ff00de;
@@ -185,16 +229,31 @@ h1 {
 
   46%, 48%, 50%, 52%, 100% {
     color: #fff;
+    border-color: #eaf6f6 #eaf6f6 #eaf6f6 transparent;
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff00de,
       0 0 35px #ff00de, 0 0 40px #ff00de, 0 0 50px #ff00de, 0 0 75px #ff00de;
   }
 }
 
 
-/*Make stuff responsive*/
-
-@media (max-width: 650px) {
-  p {
-    font-size: 3.5em;
+@keyframes bflickr {
+  0%, 45%, 47%, 49%, 51% {
+    color: #02171D;
+    border-color: #BFECFA #BFECFA #BFECFA transparent;
+    background-color: #515151;
+    text-shadow: none;
+    box-shadow: none;
   }
+
+  46%, 48%, 50%, 52%, 100% {
+    color: #BFECFA;
+    background-color: #ff1177;
+    text-shadow: 0 0 1px #BFECFA, 0 0 3px #BFECFA, 0 0 5px #BFECFA, 0 0 10px #ff00de,
+      0 0 15px #ff00de, 0 0 20px #ff00de, 0 0 25px #ff00de, 0 0 35px #ff00de;
+
+    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff1177,
+      0 0 35px #ff1177, 0 0 40px #ff1177, 0 0 50px #ff1177, 0 0 75px #ff1177;
+  }
+
+
 }
