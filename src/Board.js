@@ -39,6 +39,8 @@ class Board extends Component {
     this.state = {
       hasWon: false,
       board: this.createBoard(),
+      out1: true,
+      out2: false,
     };
     this.flipCellsAround = this.flipCellsAround.bind(this);
   }
@@ -85,11 +87,22 @@ class Board extends Component {
     this.setState({ board, hasWon });
   }
 
+  // set timer to switch between out1 and out2
+  componentDidMount() {
+    this.interval = setInterval(() => {
+      this.setState((st) => ({
+        out1: !st.out1,
+        out2: !st.out2,
+      }));
+    }, 2000);
+  }
+
   /** Render game board or winning message. */
 
   render() {
     const { nrows, ncols } = this.props;
-    const { board, hasWon } = this.state;
+    const { board, hasWon, out1, out2 } = this.state;
+    let out;
     let tblBoard = [];
     for (let y = 0; y < nrows; y++) {
       let row = [];
@@ -106,13 +119,16 @@ class Board extends Component {
       }
       tblBoard.push(<tr>{row}</tr>);
     }
+    if (out1) out = "out1";
+    if (out2) out = "out2";
     // if the game is won, just show a winning msg & render nothing else
     if (hasWon) return <h1>You Won</h1>;
     return (
       <div>
         <div className="container">
-          <h1 className="neon-7">
-            Lights <span className="neon-8">Out</span>
+          <h1>
+            <span className="lights">Lights </span>
+            <span className={out}>Out</span>
           </h1>
         </div>
         <table className="Board">
