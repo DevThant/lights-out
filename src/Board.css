@@ -11,7 +11,6 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-  height: 80vh;
 }
 
 .Board {
@@ -20,8 +19,8 @@ body {
 
 #container {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  height: 90vh;
 }
 
 #hasWon {
@@ -33,6 +32,26 @@ body {
   color: #fff;
   text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 4px #228dff,
     0 0 5px #228dff, 0 0 10px #228dff, 0 0 15px #228dff, 0 0 25px #228dff;
+}
+
+#author{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+  
+}
+#author a{
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Righteous', cursive;
+  font-size: 1.5em;
+  text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 4px #228dff,
+    0 0 5px #228dff, 0 0 10px #228dff, 0 0 15px #228dff, 0 0 25px #228dff;
+}
+
+#author a:hover{
+  animation: aflickr 1.5s ease-in-out infinite alternate;
 }
 
 h1 {
@@ -203,8 +222,6 @@ button {
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff00de,
       0 0 35px #ff00de, 0 0 40px #ff00de, 0 0 50px #ff00de, 0 0 75px #ff00de;
   }
-
-
 }
 
 @-webkit-keyframes flickr2 {
@@ -215,7 +232,6 @@ button {
 
   46%, 48%, 50%, 52%, 100% {
     color: #fff;
-    border-color: #eaf6f6 #eaf6f6 #eaf6f6 transparent;
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff00de,
       0 0 35px #ff00de, 0 0 40px #ff00de, 0 0 50px #ff00de, 0 0 75px #ff00de;
   }
@@ -229,12 +245,30 @@ button {
 
   46%, 48%, 50%, 52%, 100% {
     color: #fff;
-    border-color: #eaf6f6 #eaf6f6 #eaf6f6 transparent;
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff00de,
       0 0 35px #ff00de, 0 0 40px #ff00de, 0 0 50px #ff00de, 0 0 75px #ff00de;
   }
 }
 
+@-webkit-keyframes  bflickr {
+  0%, 45%, 47%, 49%, 51% {
+    color: #02171D;
+    border-color: #BFECFA #BFECFA #BFECFA transparent;
+    background-color: #515151;
+    text-shadow: none;
+    box-shadow: none;
+  }
+
+  46%, 48%, 50%, 52%, 100% {
+    color: #BFECFA;
+    background-color: #ff1177;
+    text-shadow: 0 0 1px #BFECFA, 0 0 3px #BFECFA, 0 0 5px #BFECFA, 0 0 10px #ff00de,
+      0 0 15px #ff00de, 0 0 20px #ff00de, 0 0 25px #ff00de, 0 0 35px #ff00de;
+
+    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff1177,
+      0 0 35px #ff1177, 0 0 40px #ff1177, 0 0 50px #ff1177, 0 0 75px #ff1177;
+  }
+}
 
 @keyframes bflickr {
   0%, 45%, 47%, 49%, 51% {
@@ -254,6 +288,30 @@ button {
     box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff1177,
       0 0 35px #ff1177, 0 0 40px #ff1177, 0 0 50px #ff1177, 0 0 75px #ff1177;
   }
+}
 
+@-webkit-keyframes aflickr {
+  0%, 45%, 47%, 49%, 51% {
+    text-shadow: none;
+    color: #515151;
+  }
 
+  46%, 48%, 50%, 52%, 100% {
+    color: #fff;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228dff,
+      0 0 35px #228dff, 0 0 40px #228dff, 0 0 50px #228dff, 0 0 75px #228dff;
+  }
+}
+
+@keyframes aflickr {
+  0%, 45%, 47%, 49%, 51% {
+    text-shadow: none;
+    color: #515151;
+  }
+
+  46%, 48%, 50%, 52%, 100% {
+    color: #fff;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228dff,
+      0 0 35px #228dff, 0 0 40px #228dff, 0 0 50px #228dff, 0 0 75px #228dff;
+  }
 }

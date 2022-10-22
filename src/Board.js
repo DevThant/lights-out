@@ -112,8 +112,8 @@ class Board extends Component {
         </div>
       );
     return (
-      <div>
-        <div id="container">
+      <div id="container">
+        <div>
           <h1>
             <span className="lights">Lights </span>
             <span className={out}>Out</span>
@@ -122,6 +122,10 @@ class Board extends Component {
         <table className="Board">
           <tbody>{tblBoard}</tbody>
         </table>
+        <div id="author">
+        <a href="https://github.com/DevThant">psThant</a>
+        </div>
+        
       </div>
     );
   }
