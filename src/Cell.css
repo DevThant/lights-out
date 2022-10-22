@@ -2,14 +2,15 @@
   height: 100px;
   width: 100px;
   background-color: #414141;
-  z-index: 100000;
-
+  border: 1px solid #000;
+  border-radius: 5px;
 }
 
 .Cell-lit {
   background: #4cc9f0;
   border-color: #BFECFA #BFECFA #BFECFA transparent;
-  box-shadow: 0 0 1px #BFECFA, 0 0 2px #BFECFA, 0 0 3px #BFECFA, 0 0 4px #228dff,
-    0 0 5px #228dff, 0 0 10px #228dff, 0 0 15px #228dff, 0 0 25px #228dff;
+  /* box-shadow: 0 0 1px #BFECFA, 0 0 2px #BFECFA, 0 0 3px #BFECFA, 0 0 4px #228dff,
+    0 0 5px #228dff, 0 0 10px #228dff, 0 0 15px #228dff, 0 0 25px #228dff; */
+  box-shadow: 0 0 1px #bfecfa, 0 0 1px #bfecfa, 0 0 1px #bfecfa, 0 0 5px #228dff, 0 0 5px #228dff, 0 0 5px #228dff, 0 0 5px #228dff, 0 0 5px #228dff;;
 
 }
