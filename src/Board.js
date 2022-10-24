@@ -104,28 +104,27 @@ class Board extends Component {
     }
     if (out1) out = "out1";
     if (out2) out = "out2";
-    if (hasWon)
-      return (
-        <div>
-          <p id="hasWon">You Won</p>
-          <button onClick={this.playAgain}>Play Again</button>
-        </div>
-      );
     return (
       <div id="container">
+        {hasWon ? (<div>
+          <p id="hasWon">You Won</p>
+          <button onClick={this.playAgain}>Play Again</button>
+        </div>):(
         <div>
           <h1>
             <span className="lights">Lights </span>
             <span className={out}>Out</span>
           </h1>
-        </div>
+        
         <table className="Board">
           <tbody>{tblBoard}</tbody>
         </table>
-        <div id="author">
-        <a href="https://github.com/DevThant">psThant</a>
         </div>
-        
+        )
+      }
+        <div id="author">
+          <a href="https://github.com/DevThant">psThant</a>
+        </div>
       </div>
     );
   }
